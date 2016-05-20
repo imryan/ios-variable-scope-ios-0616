@@ -12,17 +12,34 @@
 
 @end
 
-
 @implementation FISAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     return YES;
 }
 
-/*
- 
- * Write your method definitions here.
- 
- */
+-(NSMutableArray *)arrayByAddingString:(NSString *)string toArray:(NSMutableArray *)array {
+    NSMutableArray *arrayCopy = [array mutableCopy];
+    [arrayCopy addObject:string];
+    
+    return arrayCopy;
+}
+
+- (NSUInteger)countOfUppercaseStringsInArray:(NSArray *)array {
+    NSUInteger count = 0;
+    
+    for (NSUInteger i = 0; i < [array count]; i++) {
+        NSString *uppercaseString = [array[i] uppercaseString];
+        if ([array[i] isEqualToString:uppercaseString]) {
+            count++;
+        }
+    }
+    
+    return count;
+}
+
+- (void)removeAllObjectsFromArray:(NSMutableArray *)array {
+    [array removeAllObjects];
+}
 
 @end
